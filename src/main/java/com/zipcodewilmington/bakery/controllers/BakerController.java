@@ -31,13 +31,13 @@ public class BakerController {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<Baker> update(Long id, Baker baker) {
+    @PutMapping("/bakers/{id}")
+    public ResponseEntity<Baker> update(@PathVariable Long id, @RequestBody Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public ResponseEntity<Boolean> destroy(Long id) {
+    @DeleteMapping("/bakers/{id}")
+    public ResponseEntity<Boolean> destroy(@PathVariable Long id) {
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
     }
 }
